@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Management - Shree Yash Creations</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: 1px solid #bdc3c7;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: #FF6B35;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .stat-card p {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .export-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .export-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .export-section p {
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .export-btn {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .export-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+        }
+
+        .orders-table {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: #f8f9fa;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-header h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-paid {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-delivered {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .status-shipped {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .back-btn {
+            background: #6c757d;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .table-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .filters {
+                flex-wrap: wrap;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fas fa-shopping-cart"></i> Orders Management</h1>
+        <div class="header-actions">
+            <a href="admin_panel.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Admin
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-shopping-bag"></i>
+                <h3 id="totalOrders">0</h3>
+                <p>Total Orders</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-rupee-sign"></i>
+                <h3 id="totalRevenue">₹0</h3>
+                <p>Total Revenue</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <h3 id="pendingOrders">0</h3>
+                <p>Pending Orders</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-check-circle"></i>
+                <h3 id="completedOrders">0</h3>
+                <p>Completed Orders</p>
+            </div>
+        </div>
+
+        <!-- Export Section -->
+        <div class="export-section">
+            <h2><i class="fas fa-file-excel"></i> Export Orders to Excel</h2>
+            <p>Download a comprehensive Excel file containing all order details, customer information, product details, and sales summaries.</p>
+            <button class="export-btn" onclick="exportOrders()">
+                <i class="fas fa-download"></i>
+                Export All Orders to Excel
+            </button>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="orders-table">
+            <div class="table-header">
+                <h2>Recent Orders</h2>
+                <div class="filters">
+                    <select class="filter-select" onchange="filterOrders(this.value)">
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="paid">Paid</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                    </select>
+                    <select class="filter-select" onchange="filterByDate(this.value)">
+                        <option value="">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                    </select>
+                </div>
+            </div>
+            <div style="overflow-x: auto;">
+                <table id="ordersTable">
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Customer</th>
+                            <th>Products</th>
+                            <th>Total</th>
+                            <th>Payment Status</th>
+                            <th>Order Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Orders will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load orders on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrders();
+            updateStats();
+        });
+
+        function loadOrders() {
+            // This would typically fetch from your API
+            // For now, showing sample data
+            const sampleOrders = [
+                {
+                    id: 'ORD001',
+                    customer: 'Priya Sharma',
+                    email: 'priya@email.com',
+                    phone: '+91 98290XXXXX',
+                    products: 'Traditional Saree Cover x1',
+                    total: 149,
+                    paymentStatus: 'paid',
+                    orderStatus: 'delivered',
+                    date: '2024-01-15'
+                },
+                {
+                    id: 'ORD002',
+                    customer: 'Rajesh Kumar',
+                    email: 'rajesh@email.com',
+                    phone: '+91 98290XXXXX',
+                    products: 'Designer Saree Cover x1',
+                    total: 209,
+                    paymentStatus: 'paid',
+                    orderStatus: 'shipped',
+                    date: '2024-01-14'
+                },
+                {
+                    id: 'ORD003',
+                    customer: 'Meera Patel',
+                    email: 'meera@email.com',
+                    phone: '+91 98290XXXXX',
+                    products: 'Premium Saree Cover x1',
+                    total: 99,
+                    paymentStatus: 'pending',
+                    orderStatus: 'pending',
+                    date: '2024-01-13'
+                }
+            ];
+
+            const tbody = document.getElementById('ordersTableBody');
+            tbody.innerHTML = '';
+
+            sampleOrders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${order.id}</strong></td>
+                    <td>
+                        <strong>${order.customer}</strong><br>
+                        <small>${order.email}</small><br>
+                        <small>${order.phone}</small>
+                    </td>
+                    <td>${order.products}</td>
+                    <td><strong>₹${order.total}</strong></td>
+                    <td><span class="status-badge status-${order.paymentStatus}">${order.paymentStatus.toUpperCase()}</span></td>
+                    <td><span class="status-badge status-${order.orderStatus}">${order.orderStatus.toUpperCase()}</span></td>
+                    <td>${order.date}</td>
+                    <td>
+                        <button class="btn btn-secondary" onclick="viewOrder('${order.id}')">View</button>
+                        <button class="btn btn-primary" onclick="updateOrderStatus('${order.id}')">Update</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function updateStats() {
+            // Update statistics
+            document.getElementById('totalOrders').textContent = '3';
+            document.getElementById('totalRevenue').textContent = '₹457';
+            document.getElementById('pendingOrders').textContent = '1';
+            document.getElementById('completedOrders').textContent = '2';
+        }
+
+        function exportOrders() {
+            const button = event.target;
+            const originalText = button.innerHTML;
+            
+            // Show loading state
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating Excel...';
+            button.disabled = true;
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.href = 'api/orders_export.php';
+            link.download = 'Shree_Yash_Creations_Orders_' + new Date().toISOString().split('T')[0] + '.xls';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Reset button
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                alert('✅ Excel file downloaded successfully!\n\nFile contains:\n• Complete order details\n• Customer information\n• Product sales summary\n• Payment status summary\n\nCheck your downloads folder.');
+            }, 2000);
+        }
+
+        function filterOrders(status) {
+            // Implementation for filtering orders by status
+            console.log('Filtering by status:', status);
+        }
+
+        function filterByDate(dateRange) {
+            // Implementation for filtering orders by date
+            console.log('Filtering by date:', dateRange);
+        }
+
+        function viewOrder(orderId) {
+            alert(`Viewing order details for ${orderId}`);
+        }
+
+        function updateOrderStatus(orderId) {
+            const status = prompt(`Update status for order ${orderId}:\n\nEnter new status (pending/paid/shipped/delivered):`);
+            if (status) {
+                alert(`Order ${orderId} status updated to: ${status}`);
+                // Here you would typically update the database
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Yash Creations - Premium Packaging Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #FFF8DC 0%, #F5F5DC 100%);
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD700 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #8B4513;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo i {
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+        }
+
+        .search-bar input {
+            background: none;
+            border: none;
+            color: white;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4757;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(255, 107, 53, 0.6)), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mandala" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,215,0,0.1)"/><circle cx="10" cy="10" r="3" fill="none" stroke="rgba(255,215,0,0.2)" stroke-width="0.5"/><circle cx="10" cy="10" r="5" fill="none" stroke="rgba(255,215,0,0.1)" stroke-width="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23mandala)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Times New Roman', serif;
+            color: #FFD700;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid #FFD700;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+            font-family: 'Times New Roman', serif;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #FF6B35, #F7931E, #FFD700);
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .category-card i {
+            font-size: 3rem;
+            color: #FF6B35;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.3);
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #8B4513;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(45deg, #f1f2f6, #dfe4ea);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #ff4757;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .product-description {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF6B35;
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            color: white;
+            border: 1px solid #8B4513;
+        }
+
+        .btn-secondary {
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: 2px solid #bdc3c7;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #8B4513;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .contact-info p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #FF6B35;
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #8B4513;
+        }
+
+        .contact-item p {
+            color: #666;
+            margin: 0;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #FFF8DC 0%, #F5F5DC 100%);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="indian-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15,5 L25,15 L15,25 L5,15 Z" fill="rgba(255,107,53,0.05)"/><circle cx="15" cy="15" r="2" fill="rgba(247,147,30,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23indian-pattern)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #FF6B35;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #8B4513;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            border-top: 3px solid #FFD700;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #FFD700;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .search-bar {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.jpeg" alt="Shree Yash Creations Logo">
+                Shree Yash Creations
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="deploy.html" target="_blank">🚀 Deploy</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search products...">
+                </div>
+                <div class="cart-icon" onclick="window.location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>श्री यश क्रिएशन्स</h1>
+            <a href="#products" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card fade-in" onclick="filterProducts('saree-covers')">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Saree Covers</h3>
+                    <p>Premium covers with traditional Indian designs</p>
+                </div>
+                <div class="category-card fade-in" onclick="filterProducts('all')">
+                    <i class="fas fa-box-open"></i>
+                    <h3>All Products</h3>
+                    <p>View all our saree covers and accessories</p>
+                </div>
+                <div class="category-card fade-in" onclick="filterProducts('premium')">
+                    <i class="fas fa-crown"></i>
+                    <h3>Premium Collection</h3>
+                    <p>Exclusive premium saree covers</p>
+                </div>
+                <div class="category-card fade-in" onclick="filterProducts('sale')">
+                    <i class="fas fa-tags"></i>
+                    <h3>Sale Items</h3>
+                    <p>Special offers and discounted products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card fade-in" data-category="saree-covers premium">
+                    <div class="product-image" onclick="showGSMOptions('Traditional Saree Cover', 149, 'OIP.jpeg')" style="cursor: pointer;">
+                        <img src="OIP.jpeg" alt="Traditional Saree Cover">
+                        <div class="product-badge">Best Seller</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Traditional Saree Cover</h3>
+                        <p class="product-description">Handcrafted cotton saree cover with traditional Indian embroidery patterns</p>
+                        <div class="product-price">₹149</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('Traditional Saree Cover', 149, 'OIP.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in" data-category="saree-covers">
+                    <div class="product-image" onclick="showGSMOptions('Plain Saree Cover', 149, 'OIP.jpeg')" style="cursor: pointer;">
+                        <img src="OIP.jpeg" alt="Plain Saree Cover">
+                        <div class="product-badge">New</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Plain Saree Cover</h3>
+                        <p class="product-description">Plain saree cover with zipper</p>
+                        <div class="product-price">₹149</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('Plain Saree Cover', 149, 'OIP.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in" data-category="saree-covers premium">
+                    <div class="product-image" onclick="showGSMOptions('Premium Saree Cover', 99, 'OIP.jpeg')" style="cursor: pointer;">
+                        <img src="OIP.jpeg" alt="Premium Saree Cover">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Saree Cover</h3>
+                        <p class="product-description">Premium saree cover with traditional zari work for special occasions</p>
+                        <div class="product-price">₹99</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('Premium Saree Cover', 99, 'OIP.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in" data-category="saree-covers premium">
+                    <div class="product-image" onclick="showGSMOptions('Elegant Saree Cover', 199, 'OIP.jpeg')" style="cursor: pointer;">
+                        <img src="OIP.jpeg" alt="Elegant Saree Cover">
+                        <div class="product-badge">Eco-Friendly</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Elegant Saree Cover</h3>
+                        <p class="product-description">Elegant saree cover with traditional designs and eco-friendly materials</p>
+                        <div class="product-price">₹199</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('Elegant Saree Cover', 199, 'OIP.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in" data-category="saree-covers premium">
+                    <div class="product-image" onclick="showGSMOptions('Classic Saree Cover', 179, 'OIP.jpeg')" style="cursor: pointer;">
+                        <img src="OIP.jpeg" alt="Classic Saree Cover">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Classic Saree Cover</h3>
+                        <p class="product-description">Classic saree cover with traditional Indian designs and premium quality</p>
+                        <div class="product-price">₹179</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('Classic Saree Cover', 179, 'OIP.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in" data-category="saree-covers sale">
+                    <div class="product-image" onclick="showGSMOptions('Deluxe Saree Cover', 159, 'OIP.jpeg')" style="cursor: pointer;">
+                        <img src="OIP.jpeg" alt="Deluxe Saree Cover">
+                        <div class="product-badge">Sale</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Deluxe Saree Cover</h3>
+                        <p class="product-description">Deluxe saree cover with premium materials and traditional designs</p>
+                        <div class="product-price">₹159</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart('Deluxe Saree Cover', 159, 'OIP.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions about our saree covers? We'd love to hear from you!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 98290XXXXX</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>shreeyashcreations.2013@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Mumbai, Maharashtra, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="api/contact.php" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Your Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Shree Yash Creations?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Shipping</h3>
+                    <p>Free shipping on orders over ₹2,000. Same-day processing for in-stock items across India.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Quality Guarantee</h3>
+                    <p>30-day money-back guarantee. All products handcrafted with traditional Indian techniques.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>Natural materials and sustainable practices. Supporting local artisans and traditional crafts.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Our customer service team is always here to help with any questions in Hindi and English.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Shree Yash Creations</h3>
+                    <p>Your trusted partner for premium packaging solutions with traditional Indian craftsmanship. Protecting your clothing with style and care since 2020.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="tel:+9198290XXXXX"><i class="fas fa-phone"></i> +91 98290XXXXX</a></li>
+                        <li><a href="mailto:shreeyashcreations.2013@gmail.com"><i class="fas fa-envelope"></i> shreeyashcreations.2013@gmail.com</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp: +91 98290XXXXX</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Shree Yash Creations. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSM Selection Modal -->
+    <div id="gsmModal" class="modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-content" style="background-color: white; margin: 15% auto; padding: 2rem; border-radius: 15px; width: 90%; max-width: 500px; position: relative;">
+            <span class="close" onclick="closeGSMModal()" style="position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+            <h2 style="color: #8B4513; margin-bottom: 1.5rem; text-align: center;">Select GSM Weight</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">Choose the GSM weight for your saree cover. Higher GSM means thicker and more durable material.</p>
+            
+            <div id="gsmOptions" style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- GSM options will be populated here -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="closeGSMModal()" class="btn btn-secondary" style="margin-right: 1rem;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all product and category cards
+        document.querySelectorAll('.product-card, .category-card, .feature-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartCount = document.querySelector('.cart-count');
+                let currentCount = parseInt(cartCount.textContent);
+                cartCount.textContent = currentCount + 1;
+                
+                // Add animation
+                button.textContent = 'Added!';
+                button.style.background = '#27ae60';
+                setTimeout(() => {
+                    button.textContent = 'Add to Cart';
+                    button.style.background = 'linear-gradient(45deg, #FF6B35, #F7931E)';
+                }, 1000);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        updateCartCount();
+
+        // GSM Modal functionality
+        let currentProduct = null;
+
+        function showGSMOptions(name, basePrice, image) {
+            currentProduct = { name, basePrice, image };
+            const modal = document.getElementById('gsmModal');
+            const optionsContainer = document.getElementById('gsmOptions');
+            
+            const gsmOptions = [
+                { gsm: 70, price: basePrice, description: 'Light weight, economical' },
+                { gsm: 80, price: basePrice + 15, description: 'Medium weight, balanced' },
+                { gsm: 90, price: basePrice + 30, description: 'Heavy weight, premium' }
+            ];
+            
+            optionsContainer.innerHTML = '';
+            
+            gsmOptions.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.style.cssText = `
+                    border: 2px solid #e9ecef;
+                    border-radius: 10px;
+                    padding: 1.5rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    background: white;
+                `;
+                optionDiv.onmouseover = () => {
+                    optionDiv.style.borderColor = '#FF6B35';
+                    optionDiv.style.transform = 'translateY(-2px)';
+                    optionDiv.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                };
+                optionDiv.onmouseout = () => {
+                    optionDiv.style.borderColor = '#e9ecef';
+                    optionDiv.style.transform = 'translateY(0)';
+                    optionDiv.style.boxShadow = 'none';
+                };
+                optionDiv.onclick = () => selectGSM(option);
+                
+                optionDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="color: #8B4513; margin-bottom: 0.5rem;">${option.gsm} GSM</h3>
+                            <p style="color: #666; margin: 0;">${option.description}</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #FF6B35;">₹${option.price}</div>
+                            <small style="color: #999;">${option.gsm === 70 ? 'Base Price' : '+₹' + (option.price - basePrice) + ' extra'}</small>
+                        </div>
+                    </div>
+                `;
+                
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            modal.style.display = 'block';
+        }
+
+        function selectGSM(option) {
+            if (currentProduct) {
+                addToCartWithGSM(currentProduct.name, option.price, currentProduct.image, option.gsm);
+                closeGSMModal();
+            }
+        }
+
+        function closeGSMModal() {
+            document.getElementById('gsmModal').style.display = 'none';
+            currentProduct = null;
+        }
+
+        function addToCartWithGSM(name, price, image, gsm) {
+            const productKey = `${name} (${gsm} GSM)`;
+            const existingItem = cart.find(item => item.name === productKey);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: productKey,
+                    price: price,
+                    image: image,
+                    gsm: gsm,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Show success message
+            alert(`✅ Added to cart!\n${productKey}\nPrice: ₹${price}`);
+        }
+
+        function addToCart(name, price, image) {
+            // Default to 70 GSM if no GSM selection
+            addToCartWithGSM(name, price, image, 70);
+        }
+
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            fetch('api/contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    alert(data.message);
+                    this.reset();
+                } else {
+                    // Show error message
+                    alert(data.error || 'Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again or contact us directly at shreeyashcreations.2013@gmail.com');
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Category filtering functionality
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const categoryCards = document.querySelectorAll('.category-card');
+            
+            // Remove active class from all category cards
+            categoryCards.forEach(card => {
+                card.style.background = 'white';
+                card.style.transform = 'translateY(-5px)';
+            });
+            
+            // Add active class to clicked category card
+            event.currentTarget.style.background = '#f0f8ff';
+            event.currentTarget.style.transform = 'translateY(-8px)';
+            
+            products.forEach(product => {
+                const productCategories = product.getAttribute('data-category');
+                
+                if (category === 'all' || productCategories.includes(category)) {
+                    product.style.display = 'block';
+                    product.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            
+            // Remove any existing "no products" message
+            const existingMsg = document.querySelector('.no-products-msg');
+            if (existingMsg) {
+                existingMsg.remove();
+            }
+            
+            // Show message if no products found
+            const visibleProducts = document.querySelectorAll('.product-card[style*="display: block"]');
+            if (visibleProducts.length === 0) {
+                const productGrid = document.querySelector('.product-grid');
+                const noProductsMsg = document.createElement('div');
+                noProductsMsg.className = 'no-products-msg';
+                noProductsMsg.innerHTML = '<p style="text-align: center; color: #666; font-size: 1.2rem; grid-column: 1 / -1; padding: 2rem;">No products found in this category.</p>';
+                productGrid.appendChild(noProductsMsg);
+            }
+        }
+
+        // Add enhanced hover effect to category cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    if (!this.style.background || this.style.background === 'white') {
+                        this.style.transform = 'translateY(-8px)';
+                        this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.2)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (!this.style.background || this.style.background === 'white') {
+                        this.style.transform = 'translateY(-5px)';
+                        this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
